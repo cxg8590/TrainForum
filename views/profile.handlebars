@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>DomoMaker</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="shortcut icon" href="/assets/img/favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+</head>
+<body>
+   <nav><a href="/profile"><img id="logo" src="{{profImg}}" alt="face logo"/></a>
+    <div class="navlink"><a href="/maker">Forum</a></div>
+    <div class="navlink"><a href="/logout">Log out</a></div>
+    <div class="navlink"><a href="/about">About</a></div>
+  </nav>
+  <section id="domos">
+    <div class="domo">
+      <div class="domo" style="background-color: {{color}};" >
+          <img src="{{profImg}}" alt="profImage" class="domoFace"/>
+          <h3 class="domoName">Conductor: {{name}}</h3>
+          <!--<h3 class="domoAge">Age: {{this.age}}</h3>-->
+      </div>
+    </div>
+  </section>
+  <div id="domoMessage"><img id="speech" src="/assets/img/speech.png" alt="speech box"/>
+    <h3><span id="errorMessage"></span></h3><img id="domo" src="assets/img/domo.png" alt="domo"/>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  <script src="/assets/maker.js" type="text/babel"></script>
+</body>
+</html>

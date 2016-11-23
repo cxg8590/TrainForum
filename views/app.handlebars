@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>DomoMaker</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="shortcut icon" href="/assets/img/favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+</head>
+<body>
+  <nav><a href="/profile"><img id="logo" src="{{profImg}}" alt="face logo"/></a>
+    <div class="navlink"><a href="/maker">Forum</a></div>
+    <div class="navlink"><a href="/logout">Log out</a></div>
+    <div class="navlink"><a href="/about">About</a></div>
+  </nav>
+  
+  <section id="domos">
+    <div class="domo">
+        {{#if domos}}
+            {{#each domos}}
+                <div class="domo" style="background-color: {{this.color}};" >
+                    <img src="{{this.pic}}" alt="domo face" class="domoFace"/>
+                    <h2>{{this.name}}</h2>
+                    <h3 class="message">{{this.message}}</h3>
+                </div>
+            {{/each}}
+        {{else}}
+        <h3 class="emptyDomo">No-ones riding the rails yet</h3>
+        {{/if}}
+    </div>
+      
+      <section id="makeDomo">
+    <form id="domoForm" name="domoForm" action="/maker" method="POST" class="domoForm">
+      <label for="message">Message: </label>
+        <select id="message" name="message">
+            <option>Gosh I love this game!</option>
+            <option>Train Force is the best!</option>
+            <option>There is literally no game I love more than Train Force!</option>
+            <option>If it where up to me, Train Force would be the only game I ever played!</option>
+            <option>I just love Train Force so darn much!</option>
+            <option>Can't wait to ride the rails again!</option>
+            <option>Honestly, why even bother playing any other game?</option>
+            <option>The fact that people like other games confuses me</option>
+            <option>After playing Train Force, I am physically incapable of deriving joy from anything else!</option>
+            <option>I live for Train Force and Train Force alone!</option>
+            <option>I just want to say thank you to the fabulous creator of Train Force for changing my life</option>
+            <option>Goodness me, I havent eaten in four days because I am too busy playing Train Force!</option>
+            <option>I can't even list all the reasons I love Train Force!</option>
+            <option>Train Force is the one and only light in this cold cruel world</option>
+            <option>Meh, it's ok...</option>
+        </select>
+      <input type="hidden" name="_csrf" value={{csrfToken}} />
+      <a id="makeDomoSubmit" href="#" class="makeDomoSubmit">Post</a>
+    </form>
+  </section>
+  </section>
+  <div id="domoMessage"><img id="speech" src="/assets/img/speech.png" alt="speech box"/>
+    <h3><span id="errorMessage"></span></h3><img id="domo" src="assets/img/domo.png" alt="domo"/>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  <script src="/assets/maker.js" type="text/babel"></script>
+</body>
+</html>
